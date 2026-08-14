@@ -110,6 +110,27 @@ layout: center
 </div>
 
 ---
+layout: image-right
+image: https://cover.sli.dev
+---
+
+# 🔍 Quality in CI
+
+Lessons learned from building this pipeline
+
+<v-clicks>
+
+- ⚡ **Cache correctness > raw speed** — a fast build that installs the wrong dependency versions is worse than a slow one that installs the right ones. A stale or mismatched cache can silently pass CI while breaking things locally.
+- 🐛 **Lint failure we hit** — our first `markdownlint-cli2` run flagged 21 issues, mostly Slidev's own HTML/Vue syntax (`<div>`, `<v-clicks>`) being misread as invalid Markdown. This taught us: lint rules need explicit, documented exceptions for framework-specific syntax, not a blanket disable.
+- 📦 **Artifacts after a failed run** — even when a build fails, the uploaded artifact (or the failure logs) let us inspect *what* was actually produced, without needing to reproduce the failure locally first.
+
+</v-clicks>
+
+<div class="mt-8 p-4 rounded-lg bg-purple-500/10 border border-purple-500/30 text-sm">
+💡 A green checkmark only means "it ran" — correctness is a separate question we still have to actively verify.
+</div>
+
+---
 layout: center
 class: text-center
 ---
