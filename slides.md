@@ -35,7 +35,7 @@ title: SDLC & CI/CD
 
 # SDLC & CI/CD
 
-A team deep-dive
+A team deep-dive into
 
 ---
 
