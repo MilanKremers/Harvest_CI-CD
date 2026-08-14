@@ -4,6 +4,13 @@ on:
   push:
     branches: [main]
 
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why are you manually redeploying?'
+        required: false
+        type: string
+
 permissions:
   contents: read
   pages: write
