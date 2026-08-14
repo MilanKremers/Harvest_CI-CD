@@ -131,6 +131,27 @@ Lessons learned from building this pipeline
 </div>
 
 ---
+layout: image-right
+image: https://cover.sli.dev
+---
+
+# 🔒 Security in CI/CD
+
+Hardening the pipeline against common mistakes
+
+<v-clicks>
+
+- 🔑 **Least privilege** — every workflow's `GITHUB_TOKEN` should only have the permissions it actually uses. A validate workflow that only reads and builds has no business holding write access — if it's ever compromised, the blast radius stays small.
+- ⛓️ **Supply-chain integrity** — third-party actions pinned to a mutable tag (like `@v4`) can silently change underneath you. Pinning to a full commit SHA locks in exactly the code that was reviewed, so nothing runs in our pipeline that we didn't explicitly approve.
+- 👤 **Human gates still matter** — automation catches broken builds and bad lint, but it can't judge intent. A required reviewer on the production environment means a real person confirms *this* deploy, at *this* moment, is meant to go live — automation and judgment aren't the same thing.
+
+</v-clicks>
+
+<div class="mt-8 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-sm">
+🛡️ Automation reduces risk — it doesn't remove the need for oversight.
+</div>
+
+---
 layout: center
 class: text-center
 ---
