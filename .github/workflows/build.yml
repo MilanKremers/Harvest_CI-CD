@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
       - name: Setup Node
-        uses: actions/setup-node@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -49,4 +49,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
+        uses: actions/deploy-pages@v4
