@@ -33,10 +33,10 @@ jobs:
         run: npx slidev build --base /Harvest_CI-CD/
 
       - name: Setup Pages
-        uses: actions/configure-pages@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
