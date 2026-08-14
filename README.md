@@ -2,7 +2,7 @@
 
 # CICD Masterclass — Slidev Deck
 
-![Deploy Status](https://github.com/mkremers/Harvest_CI-CD/actions/workflows/build.yml/badge.svg)
+![Deploy Status](https://github.com/MilanKremers/Harvest_CI-CD/actions/workflows/build.yml/badge.svg)
 
 A Slidev presentation about SDLC and CI/CD, built during the masterclass.
 
