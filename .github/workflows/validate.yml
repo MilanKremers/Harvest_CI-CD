@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
         with:
           node-version: 20
 
@@ -30,15 +30,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
         with:
           node-version: 20
 
       - name: Cache npm dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
@@ -52,7 +52,7 @@ jobs:
         run: npx slidev build --base /Harvest_CI-CD/
 
       - name: Upload build output
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@11d5960a326750d5838078e36cf38b85af677262 # v4.1.7
         with:
           name: slidev-build-output
           path: dist
