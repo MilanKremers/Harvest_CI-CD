@@ -1,5 +1,11 @@
 # Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
+# CICD Masterclass — Slidev Deck
+
+![Deploy Status](https://github.com/mkremers/Harvest_CI-CD/actions/workflows/build.yml/badge.svg)
+
+A Slidev presentation about SDLC and CI/CD, built during the masterclass.
+
 To start the slide show:
 
 - `pnpm install`
