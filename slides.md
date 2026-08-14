@@ -1,84 +1,123 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
 title: Welcome to Slidev
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
+  ## SDLC & CI/CD Deep Dive
+  A team presentation on software delivery pipelines.
 class: text-center
-# https://sli.dev/features/drawing
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable Comark Syntax: https://comark.dev/syntax/markdown
-comark: true
-# duration of the presentation
+mdc: true
 duration: 35min
 ---
 
-# Welcome to Slidev
+# 🚀 SDLC & CI/CD
 
-Presentation slides for developers
+### A team deep-dive into modern software delivery
 
----
-theme: default
-title: SDLC & CI/CD
----
-
-# SDLC & CI/CD
-
-A team deep-dive
+<div class="pt-12">
+  <span class="px-2 py-1 rounded bg-blue-500/20 text-blue-400">GitHub Actions</span>
+  <span class="px-2 py-1 rounded bg-green-500/20 text-green-400">GitHub Pages</span>
+  <span class="px-2 py-1 rounded bg-purple-500/20 text-purple-400">Slidev</span>
+</div>
 
 ---
-
-# What is SDLC?
-
-The Software Development Life Cycle — the structured stages a piece of software goes through:
-
-- Plan
-- Design
-- Implement
-- Test
-- Deploy
-- Maintain
-
+layout: image-right
+image: https://cover.sli.dev
 ---
 
-# What is CI/CD?
+# 📖 What is SDLC?
 
-- **CI (Continuous Integration)** — merge and validate code changes frequently, catch issues early via automated builds/tests
-- **CD (Continuous Delivery/Deployment)** — automatically ship validated changes to an environment (in our case, GitHub Pages)
+The **Software Development Life Cycle** — the structured stages a piece of software goes through.
 
----
+<v-clicks>
 
-# Workflow Triggers & Structure
+- 🧭 **Plan** — define scope and goals
+- ✏️ **Design** — architecture and structure
+- 💻 **Implement** — write the code
+- 🧪 **Test** — validate it works
+- 🚢 **Deploy** — ship it to users
+- 🔧 **Maintain** — keep it running
 
-How our pipeline decides *when* and *what* to run
-
----
-
-# Two triggers, two purposes
-
-- **`push` naar `main`** → bouwt én deployt de site live
-- **`pull_request`** → bouwt alleen, ter validatie, deployt niets
-- **`workflow_dispatch`** → handmatige herstart, met optionele reden als input
-
-Elk moment in de levenscyclus van een wijziging heeft dus zijn eigen trigger.
+</v-clicks>
 
 ---
+layout: center
+class: text-center
+---
 
-# Waarom scheiding van build en deploy?
+# 🔄 What is CI/CD?
 
-- Een PR-workflow mag nooit publiceren — die controleert alleen of de code bouwt
-- `needs: build` zorgt dat deploy pas start als de build geslaagd is
-- Concurrency groups voorkomen dat verouderde runs onnodig doorlopen
+<div class="grid grid-cols-2 gap-8 mt-8 text-left">
 
-Resultaat: alleen geldige, geteste wijzigingen komen live op `main`.
+<div class="p-6 rounded-xl bg-blue-500/10 border border-blue-500/30">
+
+### 🔵 CI — Continuous Integration
+
+Merge and validate code changes frequently. Catch issues early via automated builds and tests.
+
+</div>
+
+<div class="p-6 rounded-xl bg-green-500/10 border border-green-500/30">
+
+### 🟢 CD — Continuous Delivery/Deployment
+
+Automatically ship validated changes to an environment — in our case, **GitHub Pages**.
+
+</div>
+
+</div>
+
+---
+layout: image-right
+image: https://cover.sli.dev
+---
+
+# ⚙️ Workflow Triggers & Structure
+
+How our pipeline decides **when** and **what** to run
+
+<v-clicks>
+
+- 🟣 `push` naar `main` → bouwt **en** deployt live
+- 🟡 `pull_request` → bouwt alleen, ter validatie
+- 🔘 `workflow_dispatch` → handmatige herstart, met reden als input
+
+</v-clicks>
+
+<div class="mt-8 text-sm opacity-75">
+Elk moment in de levenscyclus van een wijziging heeft zijn eigen trigger.
+</div>
+
+---
+layout: center
+---
+
+# 🛡️ Why separate build and deploy?
+
+<v-clicks>
+
+- 🚫 A PR-workflow never publishes — it only checks that the code builds
+- ⛓️ `needs: build` ensures deploy only starts after a successful build
+- ⏱️ Concurrency groups cancel stale runs, saving time and resources
+
+</v-clicks>
+
+<div class="mt-10 p-4 rounded-lg bg-gradient-to-r from-green-500/20 to-blue-500/20 text-center">
+✅ Result: only valid, tested changes ever reach <code>main</code>
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# Thank you 🎉
+
+### Questions?
+
+<div class="pt-8 opacity-60 text-sm">
+Built with Slidev · Deployed via GitHub Actions & Pages
+</div>
