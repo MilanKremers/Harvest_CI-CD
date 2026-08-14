@@ -110,45 +110,69 @@ layout: center
 </div>
 
 ---
-layout: image-right
-image: https://cover.sli.dev
+layout: default
 ---
 
 # 🔍 Quality in CI
 
 Lessons learned from building this pipeline
 
-<v-clicks>
+<div class="grid gap-4 mt-6">
 
-- ⚡ **Cache correctness > raw speed** — a fast build that installs the wrong dependency versions is worse than a slow one that installs the right ones. A stale or mismatched cache can silently pass CI while breaking things locally.
-- 🐛 **Lint failure we hit** — our first `markdownlint-cli2` run flagged 21 issues, mostly Slidev's own HTML/Vue syntax (`<div>`, `<v-clicks>`) being misread as invalid Markdown. This taught us: lint rules need explicit, documented exceptions for framework-specific syntax, not a blanket disable.
-- 📦 **Artifacts after a failed run** — even when a build fails, the uploaded artifact (or the failure logs) let us inspect *what* was actually produced, without needing to reproduce the failure locally first.
+<div class="flex items-start gap-3 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/30">
+  <div class="i-carbon-flash text-2xl text-yellow-400 mt-1"></div>
+  <div>
+    <strong>Cache correctness > raw speed</strong> — a fast build that installs the wrong dependency versions is worse than a slow one that installs the right ones. A stale or mismatched cache can silently pass CI while breaking things locally.
+  </div>
+</div>
 
-</v-clicks>
+<div class="flex items-start gap-3 p-3 rounded-lg bg-red-500/10 border border-red-500/30">
+  <div class="i-carbon-debug text-2xl text-red-400 mt-1"></div>
+  <div>
+    <strong>Lint failure we hit</strong> — our first <code>markdownlint-cli2</code> run flagged 21 issues, mostly Slidev's own HTML/Vue syntax being misread as invalid Markdown. Lint rules need explicit, documented exceptions for framework-specific syntax, not a blanket disable.
+  </div>
+</div>
 
-<div class="mt-8 p-4 rounded-lg bg-purple-500/10 border border-purple-500/30 text-sm">
-💡 A green checkmark only means "it ran" — correctness is a separate question we still have to actively verify.
+<div class="flex items-start gap-3 p-3 rounded-lg bg-purple-500/10 border border-purple-500/30">
+  <div class="i-carbon-archive text-2xl text-purple-400 mt-1"></div>
+  <div>
+    <strong>Artifacts after a failed run</strong> — even when a build fails, the uploaded artifact lets us inspect what was actually produced, without reproducing the failure locally first.
+  </div>
+</div>
+
 </div>
 
 ---
-layout: image-right
-image: https://cover.sli.dev
+layout: default
 ---
 
 # 🔒 Security in CI/CD
 
 Hardening the pipeline against common mistakes
 
-<v-clicks>
+<div class="grid gap-4 mt-6">
 
-- 🔑 **Least privilege** — every workflow's `GITHUB_TOKEN` should only have the permissions it actually uses. A validate workflow that only reads and builds has no business holding write access — if it's ever compromised, the blast radius stays small.
-- ⛓️ **Supply-chain integrity** — third-party actions pinned to a mutable tag (like `@v4`) can silently change underneath you. Pinning to a full commit SHA locks in exactly the code that was reviewed, so nothing runs in our pipeline that we didn't explicitly approve.
-- 👤 **Human gates still matter** — automation catches broken builds and bad lint, but it can't judge intent. A required reviewer on the production environment means a real person confirms *this* deploy, at *this* moment, is meant to go live — automation and judgment aren't the same thing.
+<div class="flex items-start gap-3 p-3 rounded-lg bg-blue-500/10 border border-blue-500/30">
+  <div class="i-carbon-locked text-2xl text-blue-400 mt-1"></div>
+  <div>
+    <strong>Least privilege</strong> — every workflow's <code>GITHUB_TOKEN</code> should only have the permissions it actually uses. If a read-only validate workflow is ever compromised, the blast radius stays small.
+  </div>
+</div>
 
-</v-clicks>
+<div class="flex items-start gap-3 p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+  <div class="i-carbon-chain text-2xl text-green-400 mt-1"></div>
+  <div>
+    <strong>Supply-chain integrity</strong> — actions pinned to a mutable tag like <code>@v4</code> can silently change underneath you. Pinning to a full commit SHA locks in exactly the code we reviewed.
+  </div>
+</div>
 
-<div class="mt-8 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-sm">
-🛡️ Automation reduces risk — it doesn't remove the need for oversight.
+<div class="flex items-start gap-3 p-3 rounded-lg bg-orange-500/10 border border-orange-500/30">
+  <div class="i-carbon-user-avatar text-2xl text-orange-400 mt-1"></div>
+  <div>
+    <strong>Human gates still matter</strong> — automation catches broken builds and bad lint, but it can't judge intent. A required reviewer confirms this deploy, at this moment, is meant to go live.
+  </div>
+</div>
+
 </div>
 
 ---
