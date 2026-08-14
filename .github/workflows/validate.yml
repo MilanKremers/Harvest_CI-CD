@@ -3,11 +3,8 @@ name: Pull
 on:
   pull_request:
     branches: [main]
-    paths:
-      - 'slides.md'
-      - 'components/**'
-      - 'package.json'
-      - 'package-lock.json'
+    paths-ignore:
+      - 'README.md'
 
 concurrency:
   group: validate-${{ github.ref }}
